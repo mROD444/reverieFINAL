@@ -1,0 +1,86 @@
+
+*{
+    background-color: #222222;
+    margin: 0;
+    padding: 0%;
+    color:#F3EFE0;
+    font-family: 'Urbanist', sans-serif;
+}
+body{
+    background-color: #222222;
+    color:#F3EFE0;
+    
+}
+
+.unlock-h1{
+    width: 50%;
+    padding-top: 12%;
+    font-weight: bold;
+    font-size: 80px;
+    transition: transform .4s;
+    text-align: center;
+    margin-left: 26%;
+}
+
+.msg{
+    padding-top: 3%;
+    width: 50%;
+    font-weight: 400;
+    font-size: 35px;
+    text-align: center;
+    margin-left: 26%;
+}
+
+
+.spotify-login-button {
+    display: inline-block;
+    background-color: #000000;
+    color: #1ED760;
+    width: 15%;
+    height: 30%;
+    font-size: 25px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, width 0.3s ease, height 0.3s ease, padding 0.3s ease, transform 0.3s ease; /* Add transform to the transition */
+    font-weight: bold;
+    font-family: 'Circular', sans-serif;
+    padding: 30px 20px;
+    margin-left: 43.5%;
+    margin-top: 5%;
+    position: relative; 
+}
+
+.spotify-login-button:hover {
+    background-color: #131813;
+    text-decoration: underline #1ED760;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 15px 20px 8px;
+    transform: scale(1.2);
+}
+
+
+.redirect-link{
+    padding-top: 5%;
+    padding-bottom: 5%;
+    width: 70%;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+    margin-left: 15.5%;
+    color: #F3EFE0;
+    font-weight: 600;
+}
+
+.redir-link {
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out, font-size 0.3s ease-in-out;
+    text-decoration-line: none;
+    color: #F3EFE0;
+    text-decoration-line: underline ;
+}
+
+.redir-link:hover {
+    font-size: 25px;
+    transform: scale(1.6);
+    color: #22A39F;
+}

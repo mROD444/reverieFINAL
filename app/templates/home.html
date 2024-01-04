@@ -1,0 +1,74 @@
+{% extends 'base.html' %} {% block title %} Reverie {% endblock %} {% block
+    content %} {% include './includes/nav.html' %}
+    
+    <div class="home-body-one">
+      <h1 class="shift-down">Connect Through Sound,</h1>
+      <h1>Track Your Stats,</h1>
+      <h1>Unfold Your Story</h1>
+      <h5>With Reverie</h5>
+      <br/>
+      <p class="text-body-one">
+        Step into the future with Reverie. Discover new melodies and track your
+        musical preferences.
+      </p>
+      <img src="static/images/body1.png" class="top-albums" />
+    </div>
+    <div class="home-body-two">
+      <h2>Join Reverie!</h2>
+      <p class="text-body-two">
+        Discover compelling music and gain insightful statistics about your
+        listening habits by joining Reverie. With just a click, sign in using
+        Spotify to dig deeper into your unique music taste."
+      </p>
+      <h3>Chart your top songs, artists, and genres</h3>
+      <p class="text-body-two">
+        Stay connected to your favorite tracks. Keep tabs of your favorite music,
+        artists, and the beats that hit just right - all neatly charted for your
+        musical enjoyment.
+      </p>
+      <h3>Expand your playlist with new songs</h3>
+      <p class="text-body-two">
+        Broaden your playlist horizons and find tunes that resonate with your unique
+        taste. Discover a list of melodies that are ready to become your next
+        favorites.
+      </p>
+      <h3>Master the verses of the tracks you love</h3>
+      <p class="text-body-two">
+        Learn the verses to the songs you love. Embrace a laid-back approach to
+        learning lyrics, making the process both effortless and fun. Dive into your
+        favorite tracks with ease adding a touch of casual charm to your musical
+        journey.
+      </p>
+      <a href="https://accounts.spotify.com/authorize?client_id=24f5696040ef42d6a4d1e90f7b55da4d&redirect_uri=http://127.0.0.1:5000/spotify_callback&response_type=code&scope=user-read-private%20user-read-email&state=STATE_STRING"
+            class="spotify-login-button">
+            Login with Spotify
+    </a>
+    </div>
+    <div class="home-body-three">
+      <h4>Rate your favorites and the ones that didn't quite hit the mark.</h4>
+      <p class="text-body-three">
+        Give your music a personal touch - rate your faves and the ones that didn't
+        quite hit the spot. It's like choosing your own vibe, so your playlist
+        always feels just right.
+      </p>
+      <img src="static/images/artist.png" class="top-artists">
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <hr>
+    <footer>
+      Copyright Notice: Reverie, including its capstone project, respects all
+      copyright laws. All copyrighted content used within Reverie is the property of
+      its respective owners. Reverie is an independent project and is not affiliated
+      with Spotify or any other third-party entities. The use of copyrighted
+      material is solely for educational and demonstration purposes within the scope
+      of fair use. Any trademarks, service marks, product names, and logos appearing
+      within Reverie are the property of their respective owners.
+    </footer>
+    {%endblock%} {%block styles%}
+    <link rel="stylesheet" href="../static/styles/home.css" />
+    {%endblock%}
+    

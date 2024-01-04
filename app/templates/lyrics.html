@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% block title %} Reverie {% endblock %} {% block
+    content %} {% include './includes/nav.html' %}
+    
+    <h1 class="lyrics-head">
+      Connect with the lyrics of the songs that touch your heart.
+    </h1>
+    <p class="lyrics-p">
+      Whether you're up for a good cry or in the mood for some lively beats,
+      chilling with calm vibes or getting hyped, Reverie invites you to fully dive
+      into the lyrics of your favorite songs. Access millions of song lyrics to
+      deepen your connection with the tracks you love. Log in with Spotify to truly 
+      feel the lyrics.
+    </p>
+    <a
+      href="https://accounts.spotify.com/authorize?client_id=24f5696040ef42d6a4d1e90f7b55da4d&redirect_uri=http://127.0.0.1:5000/spotify_callback&response_type=code&scope=user-read-private%20user-read-email&state=STATE_STRING"
+      class="spotify-login-button"
+    >
+      Login with Spotify
+    </a>
+    {%endblock%} {%block styles%}
+    <link rel="stylesheet" href="../static/styles/lyrics.css" />
+    {%endblock%}
+    

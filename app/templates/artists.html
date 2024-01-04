@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% block title %} Reverie {% endblock %} {% block
+    content %} {% include './includes/nav.html' %}
+
+    <h1 class="unlock-h1">
+        Unlock your most listened to artists with Reverie
+    </h1>
+    <p class="msg">
+        Keep it simple – just log in with Spotify, and let Reverie take care of the tracking.
+    </p>
+    <a href="https://accounts.spotify.com/authorize?client_id=24f5696040ef42d6a4d1e90f7b55da4d&redirect_uri=http://127.0.0.1:5000/spotify_callback&response_type=code&scope=user-read-private%20user-read-email&state=STATE_STRING"
+            class="spotify-login-button">
+            Login with Spotify
+    </a>
+    
+    <p class="redirect-link">
+    Don't forget to keep tabs on your favorite <a href="{{ url_for('topTracks') }}" class="redir-link">tracks</a> and <a href='{{ url_for("topGenres") }}' class="redir-link">genres</a> as well—Reverie has got you covered.
+    </p>
+
+
+
+
+{%endblock%} {%block styles%}
+<link rel="stylesheet" href="../static/styles/artists.css" />
+{%endblock%}

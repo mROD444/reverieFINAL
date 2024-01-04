@@ -55,3 +55,14 @@ body{
     box-shadow: rgba(0, 0, 0, 0.56) 0px 15px 20px 8px;
     transform: scale(1.2);
 }
+
+
+#content-wrapper {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.search{
+    padding-top: 100%;
+}

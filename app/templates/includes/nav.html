@@ -36,15 +36,15 @@
             <li><a class="dropdown-item" href="{{ url_for('topTracks') }}">Top Tracks</a></li>
           </ul>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" href="{{ url_for('recently_played') }}">Recently Played</a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link" href="{{ url_for('discover') }}">Discover</a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" href="{{ url_for('lyrics') }}">Lyrics</a>
-        </li>
+        </li> -->
         {% if current_user.is_authenticated %}
           <li class="nav-item" id="user-info">
             <p>Welcome, {{ current_user.username }}! What are you feeling today?</p>
@@ -62,3 +62,4 @@
 {%block styles%}
 <link rel="stylesheet" href="../static/styles/nav.css" />
 {%endblock%}
+

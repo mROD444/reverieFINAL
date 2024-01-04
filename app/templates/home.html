@@ -39,10 +39,12 @@
         favorite tracks with ease adding a touch of casual charm to your musical
         journey.
       </p>
-      <a href="https://accounts.spotify.com/authorize?client_id=24f5696040ef42d6a4d1e90f7b55da4d&redirect_uri=http://127.0.0.1:5000/spotify_callback&response_type=code&scope=user-read-private%20user-read-email&state=STATE_STRING"
-            class="spotify-login-button">
-            Login with Spotify
-    </a>
+      {% if not is_user_logged_in %}
+            <a href="https://accounts.spotify.com/authorize?client_id=24f5696040ef42d6a4d1e90f7b55da4d&redirect_uri=http://127.0.0.1:5000/spotify_callback&response_type=code&scope=user-read-private%20user-read-email&state=STATE_STRING"
+               class="spotify-login-button">
+               Login with Spotify
+            </a>
+        {% endif %}
     </div>
     <div class="home-body-three">
       <h4>Rate your favorites and the ones that didn't quite hit the mark.</h4>

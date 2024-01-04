@@ -83,3 +83,131 @@ body{
     transform: scale(1.6);
     color: #22A39F;
 }
+
+footer{
+    padding-top: 1%;
+    width: 80%;
+    text-align: center;
+    margin-left: 10%;
+    padding-bottom: 3%;
+    font-weight: 400;
+}
+
+hr{
+    color: #F3EFE0;
+    padding-top: 3%;
+
+}
+
+.top-genres{
+    padding-top: 10%;
+    font-size: 60px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: underline;
+}
+
+h2{
+    text-align: center;
+    padding-top: 45px;
+    text-transform: uppercase;
+    font-style: italic;
+    font-weight: bold;
+    color: #F3EFE0;
+}
+
+.tab-container {
+    display: flex;
+    width: 75%;
+    margin-top: 2%;
+    margin-left: 13%;
+    font-family: 'Urbanist', sans-serif;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 900;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    justify-content: space-around;
+}
+
+.tab {
+    text-decoration: none;
+    padding: 10px;
+    margin-right: 10px;
+    color: #22A39F;
+    width: 12%;
+    background-color: #F3EFE0;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+
+.tab:hover {
+    background-color: #F3EFE0;
+    text-decoration: underline 4px solid ;
+    color: #19817e;
+    box-shadow: rgba(0, 0, 2, 7) 0px 15px 20px;
+    transform: scale(1.4);
+}
+
+
+
+
+
+.genre-item{
+    padding-top: 20px;
+    font-style: italic;
+    font-size: 35px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+    border: #000000 1px solid;
+    padding-right: 35px;
+    padding-left: 35px;
+}
+
+hr{
+    color: #F3EFE0;
+    padding-top: 3%;
+
+}
+
+footer{
+    padding-top: 1%;
+    width: 80%;
+    text-align: center;
+    margin-left: 10%;
+    padding-bottom: 3%;
+    font-weight: 400;
+}
+
+.genres-content {
+    margin-left: 36.5%;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.genres-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.genres-table {
+    text-align: center;
+    border-spacing: 10px 0;
+    background-color: #000000;
+    border-radius: 25%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.genre-item:hover{
+    padding: 10px;
+    transform: scale(1.7);
+    text-decoration: underline;
+    box-shadow: rgba(3, 5, 5, 8) 0px 15px 10px;
+
+}
+
+.genre-item, .genre-item {
+    margin-top: 10px;
+}

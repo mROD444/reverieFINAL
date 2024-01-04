@@ -1,19 +1,35 @@
-{% extends 'base.html' %} {% block title %} Reverie {% endblock %} {% block
-    content %} {% include './includes/nav.html' %}
+{% extends 'base.html' %}
 
-<div class="recent-body">
-    <h1 class="recent-head">See which tracks have been in your rotation.</h1>
-    <p class="recent-p1">Stay more connected to your favorite tracks 
-        than ever before. With Reverie, you can effortlessly explore the realm
-         of your recently played Spotify songs every time you log in.
-          <br/>Keep that connection alive with Reverie!
-    </p>
-    <a href="https://accounts.spotify.com/authorize?client_id=24f5696040ef42d6a4d1e90f7b55da4d&redirect_uri=http://127.0.0.1:5000/spotify_callback&response_type=code&scope=user-read-private%20user-read-email&state=STATE_STRING"
-        class="spotify-login-button">
-        Login with Spotify
-    </a>
-</div>    
-</div>
+{% block title %} Reverie {% endblock %}
+
+{% block content %}
+    {% include './includes/nav.html' %}
+
+    {% if not current_user.is_authenticated %}
+        <div class="recent-body">
+            <h1 class="recent-head">See which tracks have been in your rotation.</h1>
+            <p class="recent-p1">Stay more connected to your favorite tracks 
+                than ever before. With Reverie, you can effortlessly explore the realm
+                of your recently played Spotify songs every time you log in.
+                <br/>Keep that connection alive with Reverie!
+            </p>
+            <a href="https://accounts.spotify.com/authorize?client_id=24f5696040ef42d6a4d1e90f7b55da4d&redirect_uri=http://127.0.0.1:5000/spotify_callback&response_type=code&scope=user-read-private%20user-read-email&state=STATE_STRING"
+                class="spotify-login-button">
+                Login with Spotify
+            </a>
+        </div>
+        {% else %}
+    <h1 class="recent-play">Most Recent Tracks</h1>
+    <ul class="recent-tracks-list">
+        {% for track in recently_played_tracks %}
+            <li>
+                <p>{{ track['name'] }}</p>
+                <p>{{ track['artists'][0]['name'] }}</p>
+                <p>{{ track['played_at'].strftime("%Y-%m-%d %H:%M:%S") }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
 
 {%endblock%} {%block styles%}
 <link rel="stylesheet" href="../static/styles/recentlyPlayed.css" />

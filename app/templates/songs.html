@@ -1,21 +1,69 @@
-{% extends 'base.html' %} {% block title %} Reverie {% endblock %} {% block
-    content %} {% include './includes/nav.html' %}
+{% extends 'base.html' %}
 
-<h1 class="unlock-h1">
-    Unlock your most listened to tracks with Reverie
-</h1>
-<p class="msg">
-    Keep it simple – just log in with Spotify, and let Reverie take care of the tracking.
-</p>
-<a href="https://accounts.spotify.com/authorize?client_id=24f5696040ef42d6a4d1e90f7b55da4d&redirect_uri=http://127.0.0.1:5000/spotify_callback&response_type=code&scope=user-read-private%20user-read-email&state=STATE_STRING"
-        class="spotify-login-button">
-        Login with Spotify
-</a>
+{% block title %} Top Tracks {% endblock %}
 
-<p class="redirect-link">
-Don't forget to keep tabs on your favorite <a href="{{ url_for('topArtists') }}" class="redir-link">artists</a> and <a href='{{ url_for("topGenres") }}' class="redir-link">genres</a> as well—Reverie has got you covered.
-</p>
+{% block content %}
+    {% include './includes/nav.html' %}
 
-{%endblock%} {%block styles%}
-<link rel="stylesheet" href="../static/styles/songs.css" />
-{%endblock%}
+    {% if not current_user.is_authenticated %}
+        <h1 class="unlock-h1">
+            Unlock your most listened to genres with Reverie
+        </h1>
+        <p class="msg">
+            Keep it simple – just log in with Spotify, and let Reverie take care of the tracking.
+        </p>
+        <a href="https://accounts.spotify.com/authorize?client_id=24f5696040ef42d6a4d1e90f7b55da4d&redirect_uri=http://127.0.0.1:5000/spotify_callback&response_type=code&scope=user-read-private%20user-read-email&state=STATE_STRING"
+           class="spotify-login-button">
+            Login with Spotify
+        </a>
+        <p class="redirect-link">
+            Don't forget to keep tabs on your favorite
+            <a href="{{ url_for('topTracks') }}" class="redir-link">tracks</a> and
+            <a href='{{ url_for("topArtists") }}' class="redir-link">artists</a> as well—Reverie has got you covered.
+        </p>
+    {% else %}
+        <h1 class="top-songs"> Your Most Streamed Songs</h1>
+        <h2>
+            {% if time_period == 'past2weeks' %} Past 2 Weeks {% elif time_period ==
+            'past6months' %} Past 6 Months {% elif time_period == 'lifetime' %} Lifetime
+            {% endif %}
+          </h2>
+        <div class="tab-container">
+            <a href="{{ url_for('topTracks', time_period='past2weeks') }}" class="tab">Past 2 Weeks</a>
+            <a href="{{ url_for('topTracks', time_period='past6months') }}" class="tab">Past 6 Months</a>
+            <a href="{{ url_for('topTracks', time_period='lifetime') }}" class="tab">Lifetime</a>
+        </div>
+        <div class="track-content">
+            <table class="genres-table">
+                {% for track in top_tracks %}
+                    <td class="song-item" data-rank="{{ loop.index }}">
+                        <img src="{{ track['image_url'] }}" alt="Album Image">
+                        <p>{{ track['name'] }}</p>
+                        <audio class="song-audio" controls>
+                            <source src="{{ track['audio_url'] }}" type="audio/mp3"></audio>
+                    </td>
+                    {% if loop.index % 3 == 0 or loop.last %}
+                        </tr>
+                        {% if not loop.last %}
+                            <tr>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+    {% endif %}
+    <hr />
+    <footer>
+        Copyright Notice: Reverie, including its capstone project, respects all
+        copyright laws. All copyrighted content used within Reverie is the property of
+        its respective owners. Reverie is an independent project and is not affiliated
+        with Spotify or any other third-party entities. The use of copyrighted
+        material is solely for educational and demonstration purposes within the scope
+        of fair use. Any trademarks, service marks, product names, and logos appearing
+        within Reverie are the property of their respective owners.
+    </footer>
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/songs.css') }}" />
+{% endblock %}

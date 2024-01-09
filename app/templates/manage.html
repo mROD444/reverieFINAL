@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %} Ratings {% endblock %}
+
+{% block content %}
+    {% include './includes/nav.html' %}
+
+    {% if not current_user.is_authenticated %}
+        <h1 class="unlock-h1">
+            See what others are saying about the music they love.
+        </h1>
+        <p class="msg">
+            Keep it simple – just log in with Spotify, and let Reverie take care of the tracking.
+        </p>
+        <a href="https://accounts.spotify.com/authorize?client_id=24f5696040ef42d6a4d1e90f7b55da4d&redirect_uri=http://127.0.0.1:5000/spotify_callback&response_type=code&scope=user-read-private%20user-read-email&state=STATE_STRING"
+           class="spotify-login-button">
+            Login with Spotify
+        </a>
+    {% else %}
+        <h2>Welcome, {{ current_user.username }}!</h2>
+        <p class="quick">Share your thoughts and feelings about the tunes you love, and let's hear what others have to say too!</p>
+        
+        {% for post in user_posts %}
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ post.title }}</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">{{ post.artist }}</h6>
+                    <p class="card-text">{{ post.feelings }}</p>
+                    <label for="rating">Rating: {{ post.rating }}</label>
+                    
+                    <form method="POST" action="{{ url_for('delete_post', post_id=post.id) }}">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+        
+        <form method="POST" action="{{ url_for('post_song') }}">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <input type="text" name="title" placeholder="Title" required>
+                    </h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">
+                        <input type="text" class ='art' name="artist" placeholder="Artist" required>
+                    </h6>
+                    <p class="card-text">
+                        <textarea name="feelings" placeholder="How does this song make you feel?" required></textarea>
+                    </p>
+                    <label for="rating">Rating: 
+                        <input type="number" name="rating" placeholder="Rating (1-5)" min="1" max="5" required>
+                    </label>
+                    <button type="submit" class="btn btn-primary">Post</button>
+                </div>
+            </div>
+        </form>
+
+    {% endif %}
+
+    {% block styles %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/manage.css') }}" />
+    {% endblock %}
+{% endblock %}

@@ -1,0 +1,101 @@
+*{
+    background-color: #222222;
+    margin: 0;
+    padding: 0%;
+    color:#F3EFE0;
+    font-family: 'Urbanist', sans-serif;
+}
+body{
+    background-color: #222222;
+    color:#F3EFE0;
+    
+}
+
+h2{
+    padding-top: 10%;
+    font-size: 80px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.quick{
+    font-size: 25px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.card-body{
+    border: 3px solid #22A39F;
+    border-radius: 30px;
+    min-height: 200px;
+
+}
+
+
+.card{
+    margin-bottom: 20px;
+    width: 45%;
+    padding: 1% 1% 1% 1%;
+    border-radius: 30px;
+    border-color: #22A39F;
+    margin-left: 27%;
+    
+}
+
+input{
+    font-size: 30px;
+    margin-left: 24%;
+    border: 5px solid #22A39F;
+    border-radius: 45px;
+    height: 90px;
+    text-align: center;
+    margin-top: 5% ;
+
+
+}
+
+form{
+    padding: 5%;
+}
+
+.art{
+    height: 45px;
+    border: 3px solid #22A39F;
+    width: 35%;
+    font-size: 20px;
+    margin-left: 30%;
+    margin-bottom: 5%;
+}
+
+
+textarea{
+    width: 75%;
+    height: 40%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    margin-left: 12%;
+}
+
+label {
+    display: block; /* Make the label a block element to control its layout */
+    margin-bottom: 8px; /* Add some space between the label and the input */
+    font-weight: bold; /* Make the label bold */
+}
+
+/* Style for the rating input */
+input[name="rating"] {
+    width: 200px; /* Set the width of the input field */
+    padding: 8px; /* Add padding to the input field */
+    box-sizing: border-box; /* Include padding in the total width */
+    border: 1px solid #ccc; /* Add a border for better visibility */
+    border-radius: 5px; /* Add rounded corners */
+    font-size: 14px; /* Set the font size */
+    margin-left: 30px;
+}
+
+/* Optional: Add hover and focus styles for better user interaction */
+input[name="rating"]:hover,
+input[name="rating"]:focus {
+    border-color: #555;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}

@@ -39,7 +39,7 @@
         favorite tracks with ease adding a touch of casual charm to your musical
         journey.
       </p>
-      {% if not is_user_logged_in %}
+      {% if not current_user.is_authenticated %}
             <a href="https://accounts.spotify.com/authorize?client_id=24f5696040ef42d6a4d1e90f7b55da4d&redirect_uri=http://127.0.0.1:5000/spotify_callback&response_type=code&scope=user-read-private%20user-read-email&state=STATE_STRING"
                class="spotify-login-button">
                Login with Spotify
@@ -53,7 +53,11 @@
         quite hit the spot. It's like choosing your own vibe, so your playlist
         always feels just right.
       </p>
-      <img src="static/images/artist.png" class="top-artists">
+          <img src = /static/images/drakehome.jpg class="row-drake">
+          <img src = /static/images/mainolivia.jpeg class="row-olv">
+          <img src = /static/images/newjeans.jpeg class="row-nj">
+          <img src = /static/images/badbunny.jpeg class="row-bd">
+          <img src = /static/images/luke.jpeg class="row-luke">
     </div>
     <br>
     <br>

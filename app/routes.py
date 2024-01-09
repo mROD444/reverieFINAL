@@ -1,7 +1,7 @@
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 from flask import render_template, redirect, url_for, flash, request, send_file, session
-from flask_login import login_user, current_user, login_required, logout_user
+from flask_login import login_user, current_user, login_required, logout_user, LoginManager
 from app import app
 from app.models import User, db, Song
 
@@ -61,14 +61,13 @@ def spotify_callback():
 def logout():
     flash('Successfully logged out!', 'warning')
     logout_user()
-    session.clear()
+    session.pop('user_id', None)
     return redirect(url_for('home'))
     
 
 
 
 @app.route('/discover', methods=['GET', 'POST'])
-@login_required
 def discover():
     static_song_list = ['Song 1', 'Song 2', 'Song 3', 'Song 4']
 
@@ -91,7 +90,25 @@ def discover():
 
 
 
+@app.route('/songs', methods=['GET', 'POST'])
+@login_required
+def manage_songs():
+    if request.method == 'POST':
+        title = request.form.get('title')
+        rating = int(request.form.get('rating'))
+        description = request.form.get('description')
 
+        if not title or not description:
+            flash('Please provide both title and description for the song.', 'error')
+        else:
+            new_song = Song(title=title, rating=rating, description=description, user_id=current_user.id)
+            db.session.add(new_song)
+            db.session.commit()
+            flash('Song added successfully!', 'success')
+            return redirect(url_for('manage_songs'))
+
+    user_songs = Song.query.filter_by(user_id=current_user.id).all()
+    return render_template('manage.html', user_songs=user_songs)
 
 
 
@@ -137,7 +154,39 @@ def lyrics():
     return render_template('lyrics.html')
 
 
+@app.route('/post_song', methods=['POST'])
+@login_required
+def post_song():
+    title = request.form.get('title')
+    artist = request.form.get('artist')
+    feelings = request.form.get('feelings')
+    rating = int(request.form.get('rating'))
 
+    new_song = Song(title=title, artist=artist, feelings=feelings, rating=rating, user_id=current_user.id)
+
+    db.session.add(new_song)
+    db.session.commit()
+
+    flash('Song added successfully!', 'success')
+    return redirect(url_for('manage_songs'))
+
+
+
+
+@app.route('/delete_post/<int:post_id>', methods=['POST'])
+@login_required
+def delete_post(post_id):
+    post = Song.query.get_or_404(post_id)
+    
+    if current_user != post.user:
+        flash('You are not authorized to delete this post.', 'danger')
+        return redirect(url_for('manage_songs'))
+
+    db.session.delete(post)
+    db.session.commit()
+
+    flash('Post deleted successfully!', 'success')
+    return redirect(url_for('manage_songs'))
 
 
 

@@ -1,21 +1,28 @@
-{% extends 'base.html' %} {% block title %} Discover {% endblock %} {% block
-    content %} {% include './includes/nav.html' %}
+{% extends 'base.html' %}
+{% block title %} Discover {% endblock %}
+{% block content %}
+    {% include './includes/nav.html' %}
+    {% if not current_user.is_authenticated %}
     <div class="discover-paragraph">
-    <h1 class="discover-body-one">Your next favorite track is just a tap away.</h1>
-    <p class="disc-p1">
-      Immerse yourself in a musical exploration and uncover new tracks that resonate
-      with your unique taste. Reverie's discovery feature takes the tunes you love to
-      reccommend similar tracks tailored to match your vibe. <br> Ready to find your next
-      top track? Log in with spotify to discover, vibe, and make every moment
-      uniquely yours.
-    </p>
-    <h3>COMING SOON</h3>
-    <a href="https://accounts.spotify.com/authorize?client_id=24f5696040ef42d6a4d1e90f7b55da4d&redirect_uri=http://127.0.0.1:5000/spotify_callback&response_type=code&scope=user-read-private%20user-read-email&state=STATE_STRING"
+        <h1 class="discover-body-one">Your next favorite track is just a tap away.</h1>
+        <img src="static/images/albums.png" class="albums">
+        <p class="disc-p1">
+            Immerse yourself in a musical exploration and uncover new tracks that resonate
+            with your unique taste. Reverie's discovery feature takes the tunes you love to
+            recommend similar tracks tailored to match your vibe. <br> Ready to find your next
+            top track? Log in with Spotify to discover, vibe, and make every moment
+            uniquely yours.
+        </p>
+        <h3 class="soon">COMING SOON</h3>
+        <a href="https://accounts.spotify.com/authorize?client_id=24f5696040ef42d6a4d1e90f7b55da4d&redirect_uri=http://127.0.0.1:5000/spotify_callback&response_type=code&scope=user-read-private%20user-read-email&state=STATE_STRING"
             class="spotify-login-button">
             Login with Spotify
         </a>
     </div>
-    {%endblock%} {%block styles%}
+    {% endif %}
+{% endblock %}
+{% block styles %}
     <link rel="stylesheet" href="../static/styles/discover.css" />
-    {%endblock%}
+{% endblock %}
+
     

@@ -154,13 +154,13 @@ h2{
 
 
 
-.genre-item{
+.genre-item {
     padding-top: 20px;
     font-style: italic;
     font-size: 35px;
     font-weight: bold;
-    transition: background-color 0.3s, transform 0.3s;
-    border: #000000 1px solid;
+    transition: background-color 0.3s, transform 0.3s, border-color 0.3s;
+    border: #22A39F 3px solid;
     padding-right: 35px;
     padding-left: 35px;
 }
@@ -189,6 +189,7 @@ footer{
 .genres-list {
     list-style-type: none;
     padding: 0;
+    
 }
 
 .genres-table {
@@ -198,14 +199,15 @@ footer{
     border-radius: 25%;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 10px;
+    border: #19817e 1px solid;
 }
 
-.genre-item:hover{
+.genre-item:hover {
     padding: 10px;
     transform: scale(1.7);
     text-decoration: underline;
     box-shadow: rgba(3, 5, 5, 8) 0px 15px 10px;
-
+    border-color: blue;
 }
 
 .genre-item, .genre-item {

@@ -22,4 +22,14 @@ class Song(db.Model):
     title = db.Column(db.String(100), nullable=False)
     rating = db.Column(db.Integer, nullable=False)
     description = db.Column(db.Text, nullable=True)
+    feelings = db.Column(db.Text, nullable=True)  # Add this line for the 'feelings' field
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+
+    def __init__(self, title, artist, rating, description, feelings, user_id):
+        self.title = title
+        self.artist = artist
+        self.rating = rating
+        self.description = description
+        self.feelings = feelings
+        self.user_id = user_id
+

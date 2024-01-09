@@ -39,8 +39,6 @@
                     <td class="song-item" data-rank="{{ loop.index }}">
                         <img src="{{ track['image_url'] }}" alt="Album Image">
                         <p>{{ track['name'] }}</p>
-                        <audio class="song-audio" controls>
-                            <source src="{{ track['audio_url'] }}" type="audio/mp3"></audio>
                     </td>
                     {% if loop.index % 3 == 0 or loop.last %}
                         </tr>

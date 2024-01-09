@@ -176,6 +176,7 @@ hr{
     margin-bottom: 10px;
     padding-top: 20px;
     padding-left: 10px;
+    z-index: 2;
 }
 
 .song-item img:hover {
@@ -189,20 +190,4 @@ h2{
     font-style: italic;
     font-weight: bold;
 
-}
-
-.song-item {
-    position: relative;
-}
-
-.song-audio {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    display: none; /* Hide the audio element by default */
-}
-
-.song-item:hover .song-audio {
-    display: block; /* Show the audio element on hover */
 }

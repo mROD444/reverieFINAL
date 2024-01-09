@@ -18,16 +18,16 @@ body{
     font-size: 55px;
     transition: transform .4s;
     text-align: center;
-    margin-left: 35%;
+    margin-left: 38%;
 }
 
 .disc-p1{
-    padding-top: 3%;
+    margin-top: -25%;
     width: 50%;
     font-weight: 400;
     font-size: 30px;
     text-align: center;
-    margin-left: 40%;
+    margin-left: 43%;
 }
 
 .spotify-login-button {
@@ -40,11 +40,11 @@ body{
     text-align: center;
     text-decoration: none;
     border-radius: 25px;
-    transition: background-color 0.3s ease, width 0.3s ease, height 0.3s ease, padding 0.3s ease, transform 0.3s ease; /* Add transform to the transition */
+    transition: background-color 0.3s ease, width 0.3s ease, height 0.3s ease, padding 0.3s ease, transform 0.3s ease;
     font-weight: bold;
     font-family: 'Circular', sans-serif;
     padding: 30px 20px;
-    margin-left: 58%;
+    margin-left: 59.7%;
     margin-top: 5%;
     position: relative; 
 }
@@ -63,6 +63,58 @@ body{
     width: 100%;
 }
 
+
+.soon{
+    width: 40%;
+    margin-left: 58%;
+    padding-top: 60px;
+    font-weight: bold;
+    font-size: 51px;
+    transition: transform .4s;
+}
+
+.soon:hover{
+        background-image: linear-gradient(
+          -100deg,
+          #ff9011 5%,
+          #34ff71 20%,
+          #52c4cc 70%,
+          #ff6aeb 90%
+        );
+        background-size: auto auto;
+        background-clip: border-box;
+        background-size: 250% auto;
+        color: #fff;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        transform: scale(1.1);
+        display: inline-block;
+        font-size: 54px;
+        animation: moveColors 1.2s linear infinite;
+
+}
+@keyframes moveColors {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 100% 0%;
+    }
+  }
+
 .search{
     padding-top: 100%;
+}
+
+
+.albums{
+    margin-left:6% ;
+    width: 30%;
+    transition: transform 0.2s ease;
+
+}
+
+.albums:hover{
+    transform: scale(1.3);
 }

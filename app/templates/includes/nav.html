@@ -42,13 +42,16 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ url_for('discover') }}">Discover</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('manage_songs') }}">Your Ratings</a>
+       </li>
         <!-- <li class="nav-item">
           <a class="nav-link" href="{{ url_for('lyrics') }}">Lyrics</a>
         </li> -->
         {% if current_user.is_authenticated %}
           <li class="nav-item" id="user-info">
             <p>Welcome, {{ current_user.username }}! What are you feeling today?</p>
-            <a class="btn btn-danger" href="{{ url_for('logout') }}">Logout</a>
+            <a class="btn" href="{{ url_for('logout') }}">Logout</a>
           </li>
         {% else %}
           <li class="nav-item">

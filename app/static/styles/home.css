@@ -177,3 +177,27 @@ hr{
     box-shadow: rgba(0, 0, 0, 0.56) 0px 15px 20px 8px;
     transform: scale(1.2);
 }
+
+.row-imgs, .row-drake, .row-olv, .row-nj, .row-bd, .row-luke{
+    flex-direction: row;
+    width: 16%;
+    justify-content: space-around;
+    transition: transform .4s;
+    border-radius: 300px;
+    margin-top: 3%;
+
+}
+
+.row-drake{
+    margin-left: 10%;
+    transition: transform .6s;
+}
+
+
+
+.row-drake:hover, .row-bd:hover, .row-luke:hover, .row-olv:hover, .row-nj:hover{
+    transform: scale(1.5);
+    border-radius: 300px;
+    border:solid 15px;
+    box-shadow: rgba(3, 5, 5, 8) 0px 20px 10px;
+}

@@ -75,3 +75,17 @@
 
 
 
+.btn {
+    background-color: #22A39F;
+    border-color: rgb(19, 105, 121)F;
+    color: #F3EFE0;
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out;}
+
+  .btn:hover {
+    background-color: #22A39F;
+    border-color: rgb(19, 105, 121)F;
+    color: #F3EFE0;
+    font-weight: bold;
+    transform: scale(1.3);
+  }
